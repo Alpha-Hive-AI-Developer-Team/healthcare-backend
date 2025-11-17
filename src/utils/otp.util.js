@@ -121,6 +121,7 @@ class OTPUtils {
     };
 
 
+    
     static validateOTPFormat(otp) {
         return /^\d{4}$/.test(otp);
     }

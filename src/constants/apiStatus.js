@@ -8,7 +8,7 @@ const API_STATUS_CODES = {
     NOT_FOUND: 404,
     CONFLICT: 409,
     INTERNAL_SERVER_ERROR: 500,
-    USER_NOT_VERIFIED: 403,
+        USER_NOT_VERIFIED: 403,
 };
 
 const RESPONSE_MESSAGES = {
@@ -28,7 +28,7 @@ const RESPONSE_MESSAGES = {
     INVALID_REFRESH_TOKEN: "Invalid refresh token",
     TOKEN_REFRESHED_SUCCESS: "Access token refreshed successfully",
     LOGOUT_SUCCESS: "Logout successful",
-    USER_NOT_VERIFIED: "User is not verified. Please verify your email.",
+    USER_NOT_VERIFIED: "User is not verified. Otp sent to your email.",
     // OTP / password reset
     OTP_REQUIRED: "OTP is required",
     INVALID_OTP: "Invalid OTP or OTP expired",
