@@ -99,6 +99,10 @@ class InfoService {
     }
     return await infoRepository.findAll(filter);
   }
+
+  async listInfosByFilter(filter = {}) {
+    return await infoRepository.findAll(filter);
+  }
 }
 
 module.exports = new InfoService();

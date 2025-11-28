@@ -14,6 +14,14 @@ router.post('/', authenticateToken, upload.single('picture'), infoController.cre
 // List (optionally filter by type)
 router.get('/', infoController.listInfos);
 
+// Convenience per-type routes for a specific user
+router.get('/details/doctor', authenticateToken, infoController.listDoctorByUser);
+router.get('/details/pharmacy', authenticateToken, infoController.listPharmacyByUser);
+router.get('/details/imageCenter', authenticateToken, infoController.listImageCenterByUser);
+router.get('/details/driverLicense', authenticateToken, infoController.listDriverLicenseByUser);
+router.get('/details/insuranceCard', authenticateToken, infoController.listInsuranceCardByUser);
+
+
 // Get by id
 router.get('/:id', infoController.getInfo);
 
