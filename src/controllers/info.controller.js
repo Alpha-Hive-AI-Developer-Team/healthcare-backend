@@ -116,6 +116,71 @@ class InfoController {
       next(error);
     }
   }
+ 
+    async listDoctorByUser(req, res, next) {
+      try {
+        if (!req.user || !req.user.userId) {
+          return next(new AppError('Authentication required', API_STATUS_CODES.UNAUTHORIZED));
+        }
+        const items = await infoService.listInfosByFilter({ userId: req.user.userId, type: 'doctor' });
+        res.status(API_STATUS_CODES.SUCCESS).json({ success: true, data: items });
+      } catch (error) {
+        next(error);
+      }
+    }
+
+  async listPharmacyByUser(req, res, next) {
+    try {
+      if (!req.user || !req.user.userId) {
+        return next(new AppError('Authentication required', API_STATUS_CODES.UNAUTHORIZED));
+      }
+      const items = await infoService.listInfosByFilter({ userId: req.user.userId, type: 'pharmacy' });
+      res.status(API_STATUS_CODES.SUCCESS).json({ success: true, data: items });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+
+  async listImageCenterByUser(req, res, next) {
+    try {
+      if (!req.user || !req.user.userId) {
+        return next(new AppError('Authentication required', API_STATUS_CODES.UNAUTHORIZED));
+      }
+      const items = await infoService.listInfosByFilter({ userId: req.user.userId, type: 'imageCenter' });
+      res.status(API_STATUS_CODES.SUCCESS).json({ success: true, data: items });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+
+
+  async listDriverLicenseByUser(req, res, next) {
+    try {
+      if (!req.user || !req.user.userId) {
+        return next(new AppError('Authentication required', API_STATUS_CODES.UNAUTHORIZED));
+      }
+      const items = await infoService.listInfosByFilter({ userId: req.user.userId, type: 'driverLicense' });
+      res.status(API_STATUS_CODES.SUCCESS).json({ success: true, data: items });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+
+  async listInsuranceCardByUser(req, res, next) {
+    try {
+      if (!req.user || !req.user.userId) {
+        return next(new AppError('Authentication required', API_STATUS_CODES.UNAUTHORIZED));
+      }
+      const items = await infoService.listInfosByFilter({ userId: req.user.userId, type: 'insuranceCard' });
+      res.status(API_STATUS_CODES.SUCCESS).json({ success: true, data: items });
+    } catch (error) {
+      next(error);
+    }
+  }
+
 }
 
 module.exports = new InfoController();
